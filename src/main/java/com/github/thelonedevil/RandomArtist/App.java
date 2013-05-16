@@ -35,7 +35,9 @@ public class App {
 				InputStream input = new FileInputStream(ayaml);
 				Yaml yaml = new Yaml();
 				Object object = yaml.load(input);
-				artists = (List<String>) object;
+				if (object != null) {
+					artists = (List<String>) object;
+				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (ClassCastException e1) {
@@ -68,25 +70,27 @@ public class App {
 		System.out.println("Name of the artist?");
 		String add2 = s.nextLine();
 		artists.add(add2);
-		System.out.println("Do you want to add any more artists? true/false");
-
+		System.out.println("You added "+add2);
 	}
 
 	static void command() {
-		for (boolean i = true; i = true;) {
+		boolean i = true;
+		while (i) {
 			add1();
+			System.out.println("Do you want to add any more artists? true/false");
 			i = Boolean.parseBoolean(s.nextLine());
-			;
+			
 		}
 		yamlSave();
+		random();
 	}
-	
-	static void new1(){
+
+	static void new1() {
 		System.out.println("Do you want to add Artists? true/false");
-			boolean i = Boolean.parseBoolean(s.nextLine());
-			if (i) {
-				command();
-			}
+		boolean i = Boolean.parseBoolean(s.nextLine());
+		if (i) {
+			command();
+		}
 	}
 
 }

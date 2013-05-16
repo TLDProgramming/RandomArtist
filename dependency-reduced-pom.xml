@@ -5,13 +5,14 @@
   <artifactId>RandomArtist</artifactId>
   <name>RandomArtist</name>
   <version>0.0.1-SNAPSHOT</version>
-  <url>http://maven.apache.org</url>
+  <url>http://Justin-wiblin.tk</url>
+  <inceptionYear>2013</inceptionYear>
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
-          <finalName>${artifactId}-${version}-tmp</finalName>
+          <finalName>${artifactId}</finalName>
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>

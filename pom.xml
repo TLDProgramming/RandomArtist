@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<name>RandomArtist</name>
-	<url>http://maven.apache.org</url>
+	<url>http://Justin-wiblin.tk</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,7 +42,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
-					<finalName>${artifactId}-${version}-tmp</finalName>
+					<finalName>${artifactId}</finalName>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
@@ -70,4 +70,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<inceptionYear>2013</inceptionYear>
 </project>
