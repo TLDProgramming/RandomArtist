@@ -1,5 +1,6 @@
 package com.github.thelonedevil.RandomArtist;
 
+import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,10 +23,18 @@ public class App {
 	public static void main(String[] args) {
 		yamlLoad();
 		yamlSave();
-		new1();
-		random();
-		System.out.println(artist);
-		s.close();
+		boolean h = false;
+		if (args.length != 0 && args[0].equalsIgnoreCase("-h")) {
+			h = true;
+		}
+
+		if (!GraphicsEnvironment.isHeadless() && !h) {
+			Window gui = new Window();
+		} else if (GraphicsEnvironment.isHeadless() || h) {
+			new1();
+			System.out.println("Your random artist: " + artist);
+			s.close();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -69,28 +78,47 @@ public class App {
 	static void add1() {
 		System.out.println("Name of the artist?");
 		String add2 = s.nextLine();
-		artists.add(add2);
-		System.out.println("You added "+add2);
+		if (!artists.contains(add2)) {
+			artists.add(add2);
+			System.out.println("You added " + add2);
+			yamlSave();
+		} else if (artists.contains(add2)) {
+			System.out.println("This Artist is already in the list");
+		}
+
 	}
 
 	static void command() {
 		boolean i = true;
 		while (i) {
-			add1();
-			System.out.println("Do you want to add any more artists? true/false");
-			i = Boolean.parseBoolean(s.nextLine());
-			
+			System.out.println("Do you want to add any more artists? y/n");
+			String input = s.nextLine();
+			if (input.equalsIgnoreCase("y")) {
+				i = true;
+				add1();
+			} else if (input.equalsIgnoreCase("n")) {
+				i = false;
+			} else if (!input.equalsIgnoreCase("n") || !input.equalsIgnoreCase("y")) {
+				System.out.println("Invalid response!");
+				command();
+			}
+
 		}
-		yamlSave();
 		random();
 	}
 
 	static void new1() {
-		System.out.println("Do you want to add Artists? true/false");
-		boolean i = Boolean.parseBoolean(s.nextLine());
-		if (i) {
+		System.out.println("Do you want to add Artists? y/n");
+		String input = s.nextLine();
+		if (input.equalsIgnoreCase("y")) {
+			add1();
 			command();
+		} else if (input.equalsIgnoreCase("n")) {
+			random();
+		} else if (!input.equalsIgnoreCase("n") || !input.equalsIgnoreCase("y")) {
+			System.out.println("Invalid response!");
+			new1();
 		}
-	}
 
+	}
 }

@@ -47,7 +47,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.github.thelonedevil.RandomArtist.App</mainClass>
+							<mainClass>com.github.thelonedevil.${artifactId}.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
