@@ -4,7 +4,7 @@
 
 	<groupId>com.github.thelonedevil</groupId>
 	<artifactId>RandomArtist</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>RandomArtist</name>
@@ -13,6 +13,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
+	<distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://nexus.justin-wiblin.tk:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>release</id>
+            <url>http://nexus.justin-wiblin.tk:8081/nexus/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
 
 	<repositories>
 		<repository>
