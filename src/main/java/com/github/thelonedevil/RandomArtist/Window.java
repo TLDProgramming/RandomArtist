@@ -24,6 +24,7 @@ public class Window extends JFrame implements ActionListener {
 		random.addActionListener(this);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == add) {
 			String inputValue = JOptionPane.showInputDialog(this, "Type Artist name into box", "Add Artist", JOptionPane.PLAIN_MESSAGE);
